@@ -20,14 +20,15 @@ const create_div = (result, org_input)=>{
     creator.classList.add('box');
     if(count==0){
         console.log('sentence')
-        creator.innerHTML = "<h2>"+topics[count].no+"."+" " + topics[count].topic + "</h2> <br>"+"<h4>sentence: "+org_input+"</h4><br>"+result;
+        creator.innerHTML = `<h2> ${topics[count].no}. ${topics[count].topic} </h2> <br> <h4>sentence: ${org_input} </h4><br> ${result}`;
         container.appendChild(creator);
         count+=1;
     }else{
-    creator.innerHTML = "<h2>"+topics[count].no+"."+" " + topics[count].topic + "</h2> <br>"+"<h4>num: "+org_input+"</h4><br>"+result;
+    creator.innerHTML =`<h2> ${topics[count].no}. ${topics[count].topic} </h2> <br> <h4>num: ${org_input} </h4><br> Result: ${result} ` ;
     // creator.textContent = div_box;
     container.appendChild(creator);
-    count+=1;}
+    count+=1;
+    }
 }
 
 const find = (org_input)=>{
@@ -50,7 +51,25 @@ const multiple = (num)=>{
     }
     console.log("sum:"+sum)
     create_div(sum,num)
+    return sum
+}
 
+const divideIntoOdd = num=>{
+        let odd_array = []  
+        for (let i =num; i>0; i--){
+            if(i%2!=1){
+                continue;
+            }else{
+                // console.log(i)
+                for(let j=i;j>0;j--){
+                    if(i+j==num && j%2==0){
+                        odd_array.push(j)
+                        odd_array.push(i)
+                    }
+                }
+            }
+        }
+        console.log(odd_array);
 }
 
 // challenges
@@ -62,10 +81,14 @@ topics = [
     },
     {
         no : 2,
-        topic:"Sum of multiples"
+        topic:"Sum of multiples; sum the no less than the given num if divisible by 3 or 5"
+    },
+    {
+        no : 3,
+        topic:"Even into odd"
     }
 ]
-sentence ='Hi I am roshan. Nice to meet you';
-num = 23;
-console.log(find(sentence))
-console.log(multiple(num))
+const input=['Hi I am roshan. Nice to meet you',10,8]
+console.log(find(input[0]));
+console.log(multiple(input[1]));
+divideIntoOdd(input[2]);
