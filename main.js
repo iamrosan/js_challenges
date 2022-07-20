@@ -20,27 +20,35 @@ const create_div = (result, org_input)=>{
     creator.classList.add('box');
     if(count==0){
         console.log('sentence')
-        creator.innerHTML = `<h2> ${topics[count].no}. ${topics[count].topic} </h2> <br> <h4>sentence: ${org_input} </h4><br> ${result}`;
+        creator.innerHTML = `
+        <h2> ${topics[count].no}. ${topics[count].topic} </h2> 
+         <h4>sentence: ${org_input} </h4>
+         ${result}
+         `;
         container.appendChild(creator);
         count+=1;
     }else{
-    creator.innerHTML =`<h2> ${topics[count].no}. ${topics[count].topic} </h2> <br> <h4>num: ${org_input} </h4><br> Result: ${result} ` ;
+    creator.innerHTML =`
+    <h2> ${topics[count].no}. ${topics[count].topic} </h2>
+    <h4>num: ${org_input} </h4>
+    Result: ${result} 
+     ` ;
     // creator.textContent = div_box;
     container.appendChild(creator);
     count+=1;
-    }
+    };
 }
 
 const find = (org_input)=>{
     word = org_input.split(' ');
-    characters = org_input.split('')
-    lines = org_input.split('\n')
+    characters = org_input.split('');
+    lines = org_input.split('\n');
     var obj = {word:word.length,
         characters:characters.length,
         line:lines.length
-        }
-    create_div(JSON.stringify(obj), org_input)
-    return obj
+        };
+    create_div(JSON.stringify(obj), org_input);
+    return obj;
 }
 
 const multiple = (num)=>{
@@ -48,28 +56,40 @@ const multiple = (num)=>{
         if(i%3==0 || i%5==0){
             sum += i
         }
-    }
-    console.log("sum:"+sum)
-    create_div(sum,num)
-    return sum
+    };
+    console.log("sum:"+sum);
+    create_div(sum,num);
+    return sum;
 }
 
 const divideIntoOdd = num=>{
-        let odd_array = []  
-        for (let i =num; i>0; i--){
-            if(i%2!=1){
-                continue;
-            }else{
-                // console.log(i)
-                for(let j=i;j>0;j--){
-                    if(i+j==num && j%2==0){
-                        odd_array.push(j)
-                        odd_array.push(i)
-                    }
-                }
-            }
+        let odd_array = [];
+        // for (let i =num; i>0; i--){
+        //     if(i%2!=1){
+        //         continue;
+        //     }else{
+        //         // console.log(i)
+        //         for(let j=i;j>0;j--){
+        //             if(i+j==num && j%2==0){
+        //                 odd_array.push(j)
+        //                 odd_array.push(i)
+        //             }
+        //         }
+        //     }
+        // }
+        // console.log(odd_array);
+        let f_num = Math.floor(num/2);
+        if(f_num%2==0){
+            odd_array.push(f_num+1,num-(f_num+1));
+            // odd_array.push()
+            console.log(odd_array);
+        }else{
+            odd_array.push(f_num,num-f_num);
+            // odd_array.push()
+            console.log(odd_array);
         }
-        console.log(odd_array);
+        create_div(odd_array,num);
+        return odd_array;
 }
 
 // challenges
@@ -87,8 +107,8 @@ topics = [
         no : 3,
         topic:"Even into odd"
     }
-]
-const input=['Hi I am roshan. Nice to meet you',10,8]
+];
+const input=['Hi I am roshan. Nice to meet you',10,10];
 console.log(find(input[0]));
 console.log(multiple(input[1]));
-divideIntoOdd(input[2]);
+console.log(divideIntoOdd(input[2]));
