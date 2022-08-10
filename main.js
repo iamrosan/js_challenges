@@ -21,7 +21,7 @@ const create_div = (result, org_input)=>{
     if(count==0){
         console.log('sentence')
         creator.innerHTML = `
-        <h2> ${topics[count].no}. ${topics[count].topic} </h2> 
+        <h2 class="text-gradient"> ${topics[count].no}. ${topics[count].topic} </h2> 
          <h4>sentence: ${org_input} </h4>
          ${result}
          `;
@@ -29,7 +29,7 @@ const create_div = (result, org_input)=>{
         count+=1;
     }else{
     creator.innerHTML =`
-    <h2> ${topics[count].no}. ${topics[count].topic} </h2>
+    <h2 class="text-gradient"> ${topics[count].no}. ${topics[count].topic} </h2>
     <h4>num: ${org_input} </h4>
     Result: ${result} 
      ` ;
@@ -54,7 +54,7 @@ const find = (org_input)=>{
 const multiple = (num)=>{
     for(let i =1; i<num; i++){
         if(i%3==0 || i%5==0){
-            sum += i
+            sum += i;
         }
     };
     console.log("sum:"+sum);
@@ -105,7 +105,7 @@ topics = [
     },
     {
         no : 3,
-        topic:"Even into odd"
+        topic:"Even into odd: "
     }
 ];
 const input=['Hi I am roshan. Nice to meet you',10,10];

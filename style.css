@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+
+h1{
+    text-align:center;
+    font-family: 'Alumni Sans Inline One', cursive;
+    letter-spacing:5px;
+    font-size: 70px;
+}
+
+#container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width: 70%; 
+    border: 2px solid black;
+    margin: 0 auto;
+    box-shadow:
+  10.5px 11.2px 4.6px rgba(0, 0, 0, 0.343),
+  19.8px 21.2px 9.4px rgba(0, 0, 0, 0.484),
+  28.4px 30.4px 15.2px rgba(0, 0, 0, 0.568),
+  37.5px 40.1px 23.3px rgba(0, 0, 0, 0.629),
+  51.6px 55.2px 38.2px rgba(0, 0, 0, 0.678),
+  100px 107px 86px rgba(0, 0, 0, 0.72)
+;
+height: auto;
+
+}
+.box{
+    margin:20px 0;
+    font-family: 'Heebo', sans-serif;
+}
+
+.text-gradient{    
+    color: #6a6a6b;
+    background-image: -webkit-linear-gradient(270deg, #6a6a6b, #111111);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+}
