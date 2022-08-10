@@ -3,6 +3,8 @@ let sum=0;
 var count = 0;
 const container = document.getElementById('container');
 // functions
+
+//for displaying results in the window
 const create_div = (result, org_input)=>{
     // console.log(topic_detail)
     // console.log('div :'+div_box)
@@ -92,6 +94,49 @@ const divideIntoOdd = num=>{
         return odd_array;
 }
 
+const numToLetter= inp => {
+    sentence='';
+    const numberIntegerRepresentation ={
+        '1':'z',
+        '2':'y',
+        '3':'x',
+        '4':'w',
+        '5':'v',
+        '6':'u',
+        '7':'t',
+        '8':'s',
+        '9':'r',
+        '10':'q',
+        '11':'p',
+        '12':'o',
+        '13':'n',
+        '14':'m',
+        '15':'l',
+        '16':'k',
+        '17':'j',
+        '18':'i',
+        '19':'h', 
+        '20':'g',
+        '21':'f',
+        '22':'e',
+        '23':'d',
+        '24':'c',
+        '25':'b',
+        '26':'a',
+        '27':'!',
+        '28':'?',
+        '29':'.',
+        '30':' '
+    }
+    inp.forEach(num=>{
+        sentence +=numberIntegerRepresentation[num];
+        // console.log(numberIntegerRepresentation[num])
+    });
+    console.log(sentence);
+    create_div(sentence,inp);
+    return sentence;
+};
+
 // challenges
 // C1 characters, words and lines
 topics = [
@@ -106,9 +151,31 @@ topics = [
     {
         no : 3,
         topic:"Even into odd: "
+    },
+    {
+        no : 4,
+        topic:"Numbers to Letters"
     }
 ];
-const input=['Hi I am roshan. Nice to meet you',10,10];
-console.log(find(input[0]));
+
+
+
+// Input to the challenges
+const input=['Hi I am roshan. Nice to meet you',10,10,['19','18','30','8','19','9','26','23','19','26','30','27']];
+
+
+
+// Challenge 1
+console.log(find(input[0])); //to count the number of word in given sentences
+
+
+// Challenge 2
 console.log(multiple(input[1]));
-console.log(divideIntoOdd(input[2]));
+
+
+// Challenge 3
+console.log(divideIntoOdd(input[2])); //give a even number and return two nearest odd number whose sum will be equal to the given even number
+
+
+// challenge 4
+numToLetter(input[3]); //fxn takes an array of num(in str format) and returns a sentence or word such that numbers correspond to the letter of the alphabet in reverse order like a = 26 & z=1
